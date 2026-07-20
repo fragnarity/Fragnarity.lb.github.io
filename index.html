@@ -201,6 +201,11 @@
             font-size: 3rem;
             overflow: hidden;
         }
+        .product-icon-area img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
         .product-content { padding: 1.35rem 1.5rem; flex: 1; display: flex; flex-direction: column; }
         .product-name {
             font-family: 'Cormorant Garamond', serif;
@@ -366,7 +371,7 @@
             </div>
             <div class="about-inner">
                 <div class="about-rule"></div>
-                <p>Founded in 2024, Fragnarity emerged from a burning passion for success and a relentless pursuit of excellence. What started as a vision has transformed into a mission: to redef[...]
+                <p>Founded in 2024, Fragnarity emerged from a burning passion for success and a relentless pursuit of excellence. What started as a vision has transformed into a mission: to redefine luxury fragrance accessibility.</p>
             </div>
         </div>
     </section>
@@ -447,242 +452,249 @@ const VARIANT_IMAGES = {
   "ramz::Red Edition": "images/ramz_red.jpg",
 };
 
-        const fragrances = [
-            {
-                id: 1,
-                name: "Khamrah", imgKey: "khamrah",
-                arabic: "\u062e\u0645\u0631\u0629",
-                icon: "\uD83C\uDF6F",
-                tags: ["Winter / Autumn"],
-                variants: [
-                    { label: "Original", price: 30, description: "A rich, ultra-sweet gourmand scent featuring heavy notes of cinnamon, dates, praline, and warm amber vanilla. Extremely popular a[...]
-                    { label: "Qahwa", price: 30, description: "A twist on the original, adding a distinct slightly bitter note of roasted Arabic coffee bean and cardamom to balance out the dense [...]
-                    { label: "Dukhan", price: 30, description: "A darker, intensely smoky, and resinous take on the classic Khamrah base. It overlays the signature sweet dates, praline, and warm [...]
-                ],
-                season: "Winter / Autumn"
-            },
-            {
-                id: 2,
-                name: "Ana Abiyedh", imgKey: "ana",
-                arabic: "\u0623\u0646\u0627 \u0627\u0644\u0623\u0628\u064a\u0636",
-                icon: "\uD83C\uDF38",
-                tags: ["All Seasons", "Summer / Spring", "feminine"],
-                variants: [
-                    { label: "Rouge", price: 15, description: "A woody-spicy, sophisticated blend of saffron, bitter almond, jasmine, and ambergris. Luxurious, slightly sweet, and airy. All seaso[...]
-                    { label: "Classic", price: 15, description: "A very clean, fresh, and powdery white musk mixed with light fruits like pear and bergamot. Smells like high-end luxury soap or fr[...]
-                    { label: "Poudr\u00e9e", imgLabel: "Poudree", price: 15, description: "An incredibly clean, calming, and soft powder fragrance. It leads with a delicate blend of iris, white m[...]
-                ],
-                season: "All Seasons"
-            },
-            {
-                id: 3,
-                name: "Amira Al Arab", imgKey: "amira",
-                arabic: "\u0623\u0645\u064a\u0631\u0629 \u0627\u0644\u0639\u0631\u0628",
-                icon: "\uD83D\uDC90",
-                tags: ["Summer / Spring", "feminine"],
-                variants: [
-                    { label: "Original", price: 18, description: "A highly feminine, elegant scent dominated by sweet white florals like jasmine and honeysuckle, grounded by a clean musk and a to[...]
-                    { label: "Prive Rose", price: 18, description: "A softer, more intimate interpretation of the Amira line. This luxurious flanker wraps delicate pink rose petals around a cream[...]
-                ],
-                season: "Spring / Summer"
-            },
-            {
-                id: 4,
-                name: "Eijazi", imgKey: "eijazi",
-                arabic: "\u0625\u0639\u062c\u0627\u0632\u064a",
-                icon: "\uD83C\uDF0A",
-                tags: ["Summer / Spring", "masculine"],
-                variants: [
-                    { label: "Silver", price: 20, description: "A sharp, refreshing, and deeply masculine fragrance. Clean citrus, marine/aquatic notes, and a strong fresh-spicy cedarwood base." [...]
-                    { label: "Intense", price: 20, description: "A deep, rich, aromatic-fougere fragrance with a strong masculine presence. It opens with clean lavender, myrtle, and sharp citrus,[...]
-                ],
-                season: "Summer / Spring"
-            },
-            {
-                id: 5,
-                name: "Bade\'e Al Oud", imgKey: "badee",
-                arabic: "\u0628\u062f\u064a\u0639 \u0627\u0644\u0639\u0648\u062f",
-                icon: "\uD83C\uDF11",
-                tags: ["Winter / Autumn", "masculine"],
-                variants: [
-                    { label: "Oud Glory", price: 28, description: "A bold, dark, and mysterious oriental fragrance. Strong saffron, earthy patchouli, nutmeg, and a deep luxurious oud base." },
-                    { label: "Amethyst", price: 28, description: "A rich, highly luxurious blend of dark velvet roses and smooth, sweet vanilla, deeply grounded by earthy pink pepper, jasmine, an[...]
-                    { label: "Honor & Glory", price: 28, description: "A unique, bright gourmand that opens with a massive burst of caramelized pineapple and warm cr\u00e8me br\u00fbl\u00e9e. As [...]
-                    { label: "Sublime", price: 28, description: "A vibrant, uplifting, and sweet fruity-woody blend. It starts with crisp red apple, wild litchi, and rose, transitioning into a sm[...]
-                    { label: "Noble Blush", price: 28, description: "A soft, powdery, and intensely comforting gourmand scent. It evokes a cloud of sweet marshmallow, white musk, and delicate alm[...]
-                ],
-                season: "Winter / Autumn"
-            },
-            {
-                id: 6,
-                name: "Fakhar Lattafa", imgKey: "fakhar",
-                arabic: "\u0641\u062e\u0631 \u0644\u0637\u0627\u0641\u0629",
-                icon: "\u2728",
-                tags: ["Summer / Spring"],
-                variants: [
-                    { label: "Men", price: 25, description: "A premium, smooth designer-style fragrance. Clean, aromatic, and fresh with apple, lavender, and ginger." },
-                    { label: "Women", price: 25, description: "A heavy, elegant tuberose and white floral blend \u2014 sophisticated and long-lasting." },
-                    { label: "Extrait / Black", price: 25, description: "A premium, ultra-crisp, and aromatic designer-style fragrance. It features an incredibly clean opening of sweet green appl[...]
-                ],
-                season: "Spring / Summer"
-            },
-            {
-                id: 7,
-                name: "Yara", imgKey: "yara",
-                arabic: "\u064a\u0627\u0631\u0627",
-                icon: "\uD83C\uDF53",
-                tags: ["All Seasons", "feminine"],
-                variants: [
-                    { label: "Original", price: 20, description: "An incredibly popular feminine scent that smells like a creamy, fluffy strawberry milkshake. Soft heliotrope, tropical fruits, va[...]
-                    { label: "Tous (Orange)", imgLabel: "Tous (Orange)", price: 20, description: "A gorgeous, sun-kissed tropical escape. Opens with juicy mango, passionfruit, and creamy coconut,[...]
-                    { label: "Moi (White)", imgLabel: "Moi (White)", price: 20, description: "A more mysterious, seductive, and deeper version of the Yara DNA. It leads with a sharp, sweet note o[...]
-                    { label: "Candy", price: 20, description: "A hyper-sweet, playful, and youthful addition to the Yara family. Opens with a burst of sugary candied fruits, green apple, and brig[...]
-                ],
-                season: "All Seasons"
-            },
-            {
-                id: 8,
-                name: "Asad", imgKey: "asad",
-                arabic: "\u0623\u0633\u062f",
-                icon: "\uD83D\uDD25",
-                tags: ["Winter / Autumn", "masculine"],
-                variants: [
-                    { label: "Original", price: 22, description: "A powerful, deeply masculine, and spicy fragrance. Heavy punch of black pepper, cloves, dark amber, vanilla, and a rich woody und[...]
-                    { label: "Bourbon", price: 22, description: "A richer, smoother, and darker variation of the original Asad. It swaps out some of the sharp spices for an opulent, boozy note of[...]
-                    { label: "Zanzibar", price: 22, description: "A completely different, tropical direction for the Asad line. It delivers a unique blend of salty marine notes, creamy coconut wa[...]
-                ],
-                season: "Winter / Autumn"
-            },
-            {
-                id: 9,
-                name: "Maahir", imgKey: "maahir",
-                arabic: "\u0645\u0627\u0647\u0631",
-                icon: "\uD83E\uDD47",
-                tags: ["Winter / Autumn"],
-                variants: [
-                    { label: "Classic Gold", price: 30, description: "A rich, regal blend of peach, bergamot, smoke, and smooth amber woods." },
-                    { label: "Silver", price: 30, description: "Fresh and citrusy with a clean, modern character \u2014 light and energetic." },
-                    { label: "Black", price: 30, description: "Intensely smoky leather and oud \u2014 the darkest and most dramatic of the trio." }
-                ],
-                season: "Autumn / Winter"
-            },
-            {
-                id: 10,
-                name: "Qaed Al Fursan", imgKey: "qaed",
-                arabic: "\u0642\u0627\u0626\u062f \u0627\u0644\u0641\u0631\u0633\u0627\u0646",
-                icon: "\uD83C\uDF4D",
-                tags: ["Summer / Spring"],
-                variants: [
-                    { label: "Original", price: 18, description: "A massive burst of juicy, bright, realistic pineapple mixed with a smoky woody oakmoss and amber base. Very energetic and addicti[...]
-                    { label: "Unlimited (White)", price: 18, description: "A smooth, creamy tropical paradise in a bottle. This version leaves behind the smoky pineapple of the original and repla[...]
-                    { label: "Untamed (Bronze)", price: 18, description: "A rugged, bold, and fiercely earthy composition. It strips away the sweet fruit altogether, emphasizing a heavy dark leat[...]
-                ],
-                season: "Summer / Spring"
-            },
-            {
-                id: 11,
-                name: "Eclaire", imgKey: "eclaire",
-                arabic: "\u0627\u0643\u0644\u064a\u0631",
-                icon: "\uD83C\uDF6E",
-                tags: ["Winter / Autumn"],
-                variants: [
-                    { label: "Original", price: 30, description: "A hyper-gourmand, mouth-watering dessert fragrance. Warm caramel, liquid vanilla, milk, and honey \u2014 super-soft, sweet, and c[...]
-                    { label: "Pistache", price: 30, description: "A delightful, nuttier twist on the original gourmand masterpiece. It pairs a rich, creamy pistachio cream and toasted almond open[...]
-                    { label: "Banoffi", price: 30, description: "A decadent dessert in a bottle. This fragrance leads with a prominent, realistic note of sweet ripe banana and thick, golden caram[...]
-                ],
-                season: "Winter / Autumn"
-            },
-            {
-                id: 12,
-                name: "Ramz Lattafa", imgKey: "ramz",
-                arabic: "\u0631\u0645\u0632 \u0644\u0637\u0627\u0641\u0629",
-                icon: "\u2764\uFE0F",
-                tags: ["Winter / Autumn", "Summer / Spring", "masculine"],
-                variants: [
-                    { label: "Silver", price: null, description: "A famous, highly addictive sweet-spicy scent profile with a bold burst of sweet pear, lavender, mint, and bergamot, blending into cardamom and sage, resting on a deep base of black vanilla husk, amber, and woods." },
-                    { label: "Red Edition", price: null, description: "A rich, warm, and seductive oriental-gourmand scent. Opens with juicy bergamot, apple, and sweet pineapple, moving into a heart of jasmine and patchouli, before settling into a warm base of vanilla, amber, cedarwood, and a touch of sweet musk. It leans warm, playful, and alluring." }
-                ],
-                season: "All Seasons"
-            }
-        ];
+const fragrances = [
+    {
+        id: 1,
+        name: "Khamrah", imgKey: "khamrah",
+        arabic: "خمرة",
+        icon: "🍯",
+        tags: ["Winter / Autumn"],
+        variants: [
+            { label: "Original", price: 30, description: "A rich, ultra-sweet gourmand scent featuring heavy notes of cinnamon, dates, praline, and warm amber vanilla. Extremely popular." },
+            { label: "Qahwa", price: 30, description: "A twist on the original, adding a distinct slightly bitter note of roasted Arabic coffee bean and cardamom to balance out the dense sweetness." },
+            { label: "Dukhan", price: 30, description: "A darker, intensely smoky, and resinous take on the classic Khamrah base. It overlays the signature sweet dates, praline, and warm amber." }
+        ],
+        season: "Winter / Autumn"
+    },
+    {
+        id: 2,
+        name: "Ana Abiyedh", imgKey: "ana",
+        arabic: "أنا البيض",
+        icon: "🌸",
+        tags: ["All Seasons", "Summer / Spring", "feminine"],
+        variants: [
+            { label: "Rouge", price: 15, description: "A woody-spicy, sophisticated blend of saffron, bitter almond, jasmine, and ambergris. Luxurious, slightly sweet, and airy." },
+            { label: "Classic", price: 15, description: "A very clean, fresh, and powdery white musk mixed with light fruits like pear and bergamot. Smells like high-end luxury soap." },
+            { label: "Poudree", imgLabel: "Poudree", price: 15, description: "An incredibly clean, calming, and soft powder fragrance. It leads with a delicate blend of iris and white musk." }
+        ],
+        season: "All Seasons"
+    },
+    {
+        id: 3,
+        name: "Amira Al Arab", imgKey: "amira",
+        arabic: "أميرة العرب",
+        icon: "💐",
+        tags: ["Summer / Spring", "feminine"],
+        variants: [
+            { label: "Original", price: 18, description: "A highly feminine, elegant scent dominated by sweet white florals like jasmine and honeysuckle, grounded by a clean musk." },
+            { label: "Prive Rose", price: 18, description: "A softer, more intimate interpretation of the Amira line. This luxurious flanker wraps delicate pink rose petals around cream." }
+        ],
+        season: "Spring / Summer"
+    },
+    {
+        id: 4,
+        name: "Eijazi", imgKey: "eijazi",
+        arabic: "إعجازي",
+        icon: "🌊",
+        tags: ["Summer / Spring", "masculine"],
+        variants: [
+            { label: "Silver", price: 20, description: "A sharp, refreshing, and deeply masculine fragrance. Clean citrus, marine/aquatic notes, and a strong fresh-spicy cedarwood base." },
+            { label: "Intense", price: 20, description: "A deep, rich, aromatic-fougere fragrance with a strong masculine presence. It opens with clean lavender, myrtle, and sharp citrus." }
+        ],
+        season: "Summer / Spring"
+    },
+    {
+        id: 5,
+        name: "Badee Al Oud", imgKey: "badee",
+        arabic: "بديع العود",
+        icon: "🌙",
+        tags: ["Winter / Autumn", "masculine"],
+        variants: [
+            { label: "Oud Glory", price: 28, description: "A bold, dark, and mysterious oriental fragrance. Strong saffron, earthy patchouli, nutmeg, and a deep luxurious oud base." },
+            { label: "Amethyst", price: 28, description: "A rich, highly luxurious blend of dark velvet roses and smooth, sweet vanilla, deeply grounded by earthy pink pepper and jasmine." },
+            { label: "Honor & Glory", price: 28, description: "A unique, bright gourmand that opens with a massive burst of caramelized pineapple and warm creme brulee." },
+            { label: "Sublime", price: 28, description: "A vibrant, uplifting, and sweet fruity-woody blend. It starts with crisp red apple, wild litchi, and rose." },
+            { label: "Noble Blush", price: 28, description: "A soft, powdery, and intensely comforting gourmand scent. It evokes a cloud of sweet marshmallow, white musk, and delicate almond." }
+        ],
+        season: "Winter / Autumn"
+    },
+    {
+        id: 6,
+        name: "Fakhar Lattafa", imgKey: "fakhar",
+        arabic: "فخر لطافة",
+        icon: "✨",
+        tags: ["Summer / Spring"],
+        variants: [
+            { label: "Men", price: 25, description: "A premium, smooth designer-style fragrance. Clean, aromatic, and fresh with apple, lavender, and ginger." },
+            { label: "Women", price: 25, description: "A heavy, elegant tuberose and white floral blend — sophisticated and long-lasting." },
+            { label: "Extrait / Black", price: 25, description: "A premium, ultra-crisp, and aromatic designer-style fragrance. It features an incredibly clean opening of sweet green apple." }
+        ],
+        season: "Spring / Summer"
+    },
+    {
+        id: 7,
+        name: "Yara", imgKey: "yara",
+        arabic: "يارا",
+        icon: "🍓",
+        tags: ["All Seasons", "feminine"],
+        variants: [
+            { label: "Original", price: 20, description: "An incredibly popular feminine scent that smells like a creamy, fluffy strawberry milkshake. Soft heliotrope and tropical fruits." },
+            { label: "Tous (Orange)", imgLabel: "Tous (Orange)", price: 20, description: "A gorgeous, sun-kissed tropical escape. Opens with juicy mango, passionfruit, and creamy coconut." },
+            { label: "Moi (White)", imgLabel: "Moi (White)", price: 20, description: "A more mysterious, seductive, and deeper version of the Yara DNA. It leads with a sharp, sweet note." },
+            { label: "Candy", price: 20, description: "A hyper-sweet, playful, and youthful addition to the Yara family. Opens with a burst of sugary candied fruits." }
+        ],
+        season: "All Seasons"
+    },
+    {
+        id: 8,
+        name: "Asad", imgKey: "asad",
+        arabic: "أسد",
+        icon: "🔥",
+        tags: ["Winter / Autumn", "masculine"],
+        variants: [
+            { label: "Original", price: 22, description: "A powerful, deeply masculine, and spicy fragrance. Heavy punch of black pepper, cloves, dark amber, vanilla, and rich woody undertones." },
+            { label: "Bourbon", price: 22, description: "A richer, smoother, and darker variation of the original Asad. It swaps out some of the sharp spices for an opulent, boozy note." },
+            { label: "Zanzibar", price: 22, description: "A completely different, tropical direction for the Asad line. It delivers a unique blend of salty marine notes and creamy coconut." }
+        ],
+        season: "Winter / Autumn"
+    },
+    {
+        id: 9,
+        name: "Maahir", imgKey: "maahir",
+        arabic: "ماهر",
+        icon: "🏆",
+        tags: ["Winter / Autumn"],
+        variants: [
+            { label: "Classic Gold", price: 30, description: "A rich, regal blend of peach, bergamot, smoke, and smooth amber woods." },
+            { label: "Silver", price: 30, description: "Fresh and citrusy with a clean, modern character — light and energetic." },
+            { label: "Black", price: 30, description: "Intensely smoky leather and oud — the darkest and most dramatic of the trio." }
+        ],
+        season: "Autumn / Winter"
+    },
+    {
+        id: 10,
+        name: "Qaed Al Fursan", imgKey: "qaed",
+        arabic: "قائد الفرسان",
+        icon: "🍍",
+        tags: ["Summer / Spring"],
+        variants: [
+            { label: "Original", price: 18, description: "A massive burst of juicy, bright, realistic pineapple mixed with a smoky woody oakmoss and amber base. Very energetic." },
+            { label: "Unlimited (White)", price: 18, description: "A smooth, creamy tropical paradise in a bottle. This version leaves behind the smoky pineapple and replaces it with smooth vanilla." },
+            { label: "Untamed (Bronze)", price: 18, description: "A rugged, bold, and fiercely earthy composition. It strips away the sweet fruit altogether, emphasizing a heavy dark leather." }
+        ],
+        season: "Summer / Spring"
+    },
+    {
+        id: 11,
+        name: "Eclaire", imgKey: "eclaire",
+        arabic: "اكلير",
+        icon: "🍰",
+        tags: ["Winter / Autumn"],
+        variants: [
+            { label: "Original", price: 30, description: "A hyper-gourmand, mouth-watering dessert fragrance. Warm caramel, liquid vanilla, milk, and honey — super-soft, sweet, and creamy." },
+            { label: "Pistache", price: 30, description: "A delightful, nuttier twist on the original gourmand masterpiece. It pairs a rich, creamy pistachio cream and toasted almond." },
+            { label: "Banoffi", price: 30, description: "A decadent dessert in a bottle. This fragrance leads with a prominent, realistic note of sweet ripe banana and thick, golden caramel." }
+        ],
+        season: "Winter / Autumn"
+    },
+    {
+        id: 12,
+        name: "Ramz Lattafa", imgKey: "ramz",
+        arabic: "رمز لطافة",
+        icon: "❤️",
+        tags: ["Winter / Autumn", "Summer / Spring", "masculine"],
+        variants: [
+            { label: "Silver", price: null, description: "A famous, highly addictive sweet-spicy scent profile with a bold burst of sweet pear, lavender, mint, and bergamot, blending into cardamom and sage, resting on a deep base of black vanilla husk, amber, and woods." },
+            { label: "Red Edition", price: null, description: "A rich, warm, and seductive oriental-gourmand scent. Opens with juicy bergamot, apple, and sweet pineapple, moving into a heart of jasmine and patchouli, before settling into a warm base of vanilla, amber, cedarwood, and a touch of sweet musk." }
+        ],
+        season: "All Seasons"
+    }
+];
 
-        const WA_NUMBER = "96171470722";
+const WA_NUMBER = "96171470722";
 
-        function buildWALink(fragrance, variantLabel, price) {
-             const priceText = price ? `$${price}` : "TBD";
-             const msg = encodeURIComponent(
-                 `Hello Fragnarity! \uD83C\uDF38\n\nI'd like to order:\n\u2022 *${fragrance.name}* (${fragrance.arabic}) \u2014 ${variantLabel}\n\u2022 Price: ${priceText}\n\nPlease let me know avail[...]
-             );
-             return `https://wa.me/${WA_NUMBER}?text=${msg}`;
-        }
+function buildWALink(fragrance, variantLabel, price) {
+    const priceText = price ? `$${price}` : "TBD";
+    const msg = encodeURIComponent(
+        `Hello Fragnarity! 🌸\n\nI'd like to order:\n• *${fragrance.name}* (${fragrance.arabic}) — ${variantLabel}\n• Price: ${priceText}\n\nPlease let me know availability and details!`
+    );
+    return `https://wa.me/${WA_NUMBER}?text=${msg}`;
+}
 
-        function renderProducts(filterTag = "all") {
-            const grid = document.getElementById("productsGrid");
-            grid.innerHTML = "";
+function renderProducts(filterTag = "all") {
+    const grid = document.getElementById("productsGrid");
+    grid.innerHTML = "";
 
-            const filtered = filterTag === "all"
-                ? fragrances
-                : fragrances.filter(f => f.tags.some(t => t.toLowerCase().includes(filterTag.toLowerCase())));
+    const filtered = filterTag === "all"
+        ? fragrances
+        : fragrances.filter(f => f.tags.some(t => t.toLowerCase().includes(filterTag.toLowerCase())));
 
-            filtered.forEach(f => {
-                const card = document.createElement("div");
-                card.className = "product-card";
-                let activeVariant = 0;
+    filtered.forEach(f => {
+        const card = document.createElement("div");
+        card.className = "product-card";
+        let activeVariant = 0;
 
-                function render() {
-                    const v = f.variants[activeVariant];
-                    const waLink = buildWALink(f, v.label, v.price);
-                    const varBtns = f.variants.length > 1
-                        ? `<div class="variant-switcher">${f.variants.map((vv, i) =>
-                            `<button class="variant-btn${i === activeVariant ? ' active' : ''}" data-vi="${i}">${vv.label}</button>`
-                          ).join('')}</div>`
-                        : "";
-                    card.innerHTML = `
-                        <div class="product-icon-area">
-                      ${(()=>{const imgKey=f.imgKey+"::"+v.label;const imgKey2=v.imgLabel?f.imgKey+"::"+v.imgLabel:null;return VARIANT_IMAGES[imgKey]||VARIANT_IMAGES[imgKey2]?`<img src="${VARIANT[...]
+        function render() {
+            const v = f.variants[activeVariant];
+            const waLink = buildWALink(f, v.label, v.price);
+            const varBtns = f.variants.length > 1
+                ? `<div class="variant-switcher">${f.variants.map((vv, i) =>
+                    `<button class="variant-btn${i === activeVariant ? ' active' : ''}" data-vi="${i}">${vv.label}</button>`
+                  ).join('')}</div>`
+                : "";
+            
+            const imgKey = f.imgKey + "::" + v.label;
+            const imgKey2 = v.imgLabel ? f.imgKey + "::" + v.imgLabel : null;
+            const imgSrc = VARIANT_IMAGES[imgKey] || VARIANT_IMAGES[imgKey2];
+            const iconHTML = imgSrc ? `<img src="${imgSrc}" alt="${f.name} - ${v.label}">` : f.icon;
+
+            card.innerHTML = `
+                <div class="product-icon-area">
+                    ${iconHTML}
+                </div>
+                <div class="product-content">
+                    <div class="product-name">${f.name}</div>
+                    <div class="product-arabic">${f.arabic}</div>
+                    ${varBtns}
+                    <div class="product-price">${v.price ? '$' + v.price : 'Price TBD'}</div>
+                    <div class="product-description">${v.description}</div>
+                    <div class="product-footer">
+                        <span class="product-season">📅 ${f.season}</span>
+                        <a class="order-btn" href="${waLink}" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-.864-.456-1.24-.88-.377-.423-.645-.994-.909-1.165-.264-.171-.556-.213-.676-.213h-.137c-.215 0-.679.165-.964.512-.287.347-.147.551-.147.551s.363.43.542.643c.178.213.578.757.578 1.529 0 .772-.223 1.577-.892 2.236-.669.66-1.654.645-1.654.645-.86 0-1.577-.29-1.577-.645 0-.355 1.157-.604 1.157-1.44 0-.836-.79-1.157-1.157-1.157-.367 0-.735.29-1.033.726-.299.436-.41.99-.41 1.44 0 1.551 1.227 2.717 2.717 2.717 1.49 0 2.717-1.166 2.717-2.717 0-.835-.556-1.44-1.157-1.44-.601 0-.859.386-.859.773 0 .387.226.773.633.773.407 0 .633-.386.633-.773 0-.387-.226-.773-.633-.773z"></path></svg>
+                            Order on WhatsApp
+                        </a>
                     </div>
-                        <div class="product-content">
-                            <div class="product-name">${f.name}</div>
-                            <div class="product-arabic">${f.arabic}</div>
-                            ${varBtns}
-                            <div class="product-price">${v.price ? '$' + v.price : 'Price TBD'}</div>
-                            <div class="product-description">${v.description}</div>
-                            <div class="product-footer">
-                                <span class="product-season">\uD83D\uDCC5 ${f.season}</span>
-                                <a class="order-btn" href="${waLink}" target="_blank" rel="noopener">
-                                    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.[...]
-                                    Order on WhatsApp
-                                </a>
-                            </div>
-                        </div>`;
-                    card.querySelectorAll(".variant-btn").forEach(btn => {
-                        btn.addEventListener("click", () => {
-                            activeVariant = parseInt(btn.dataset.vi);
-                            render();
-                        });
-                    });
-                }
-                render();
-                grid.appendChild(card);
+                </div>`;
+            
+            card.querySelectorAll(".variant-btn").forEach(btn => {
+                btn.addEventListener("click", () => {
+                    activeVariant = parseInt(btn.dataset.vi);
+                    render();
+                });
             });
         }
+        render();
+        grid.appendChild(card);
+    });
+}
 
-        document.getElementById("filterBar").addEventListener("click", e => {
-            const btn = e.target.closest(".filter-btn");
-            if (!btn) return;
-            document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-            renderProducts(btn.dataset.filter);
-        });
+document.getElementById("filterBar").addEventListener("click", e => {
+    const btn = e.target.closest(".filter-btn");
+    if (!btn) return;
+    document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    renderProducts(btn.dataset.filter);
+});
 
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener("click", function(e) {
-                const target = document.querySelector(this.getAttribute("href"));
-                if (target) { e.preventDefault(); target.scrollIntoView({ behavior: "smooth", block: "start" }); }
-            });
-        });
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener("click", function(e) {
+        const target = document.querySelector(this.getAttribute("href"));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: "smooth", block: "start" }); }
+    });
+});
 
-        document.addEventListener("DOMContentLoaded", () => renderProducts());
+document.addEventListener("DOMContentLoaded", () => renderProducts());
     </script>
 </body>
 </html>
